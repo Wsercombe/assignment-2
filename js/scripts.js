@@ -1,4 +1,22 @@
-
+function findLargest(python, cpp, css, ruby) {
+  // my very imperfect way of finding the largest variable
+  // ** does not handle ties
+  let largestNum = python;
+  let largestVar = "Python";
+  if (cpp > largestNum) {
+    largestNum = cpp;
+    largestVar = "C++";
+  } 
+  if (css > largestNum) {
+    largestNum = css;
+    largestVar = "CSS";
+  }
+  if (ruby > largestNum) {
+    largestNum = ruby;
+    largestVar = "Ruby";
+  }
+  return largestVar;
+}
 
 function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCondiment, favoriteColor) {
   let python = 0;
@@ -14,11 +32,6 @@ function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCond
   } else if (favoriteClass == "Art") {
     css += 1;
   }
-    alert ("ANSWER WAS " + favoriteClass);
-    alert("Python score: " + python);
-    alert("CSS score: " + css);
-    alert("Ruby score: " + ruby);
-    alert("C++ score: " + cpp);
 
   if (favoriteAnimal == "Snake") {
     python += 1;
@@ -30,11 +43,6 @@ function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCond
     ruby += 1;
   }
 
-    alert ("ANSWER WAS " + favoriteAnimal);
-    alert("Python score: " + python);
-    alert("CSS score: " + css);
-    alert("Ruby score: " + ruby);
-    alert("C++ score: " + cpp);
 
   if (favoriteGod == "Zeus") {
     cpp += 1;
@@ -46,12 +54,6 @@ function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCond
     css += 1;
   }
 
-    alert ("ANSWER WAS " + favoriteGod);
-    alert("Python score: " + python);
-    alert("CSS score: " + css);
-    alert("Ruby score: " + ruby);
-    alert("C++ score: " + cpp);
-
   if (favoriteCondiment === "Mayonnaise") {
     css += 1;
   } else if (favoriteCondiment === "Ketchup") {
@@ -62,12 +64,7 @@ function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCond
     python += 1000; // got to love the python sauce
   }
 
-    alert ("ANSWER WAS " + favoriteCondiment);
-    alert("Python score: " + python);
-    alert("CSS score: " + css);
-    alert("Ruby score: " + ruby);
-    alert("C++ score: " + cpp);
-    
+
   if (favoriteColor === "Green") {
     python += 1;
   } else if (favoriteColor === "Red") {
@@ -77,12 +74,12 @@ function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCond
   } else if (favoriteColor === "Black") {
     cpp += 1;
   }
-    alert ("ANSWER WAS " + favoriteColor);
+
     alert("Python score: " + python);
     alert("CSS score: " + css);
     alert("Ruby score: " + ruby);
     alert("C++ score: " + cpp);
-
+    return findLargest(python, cpp, css, ruby);
 }
 
 
@@ -95,7 +92,8 @@ $(document).ready(function(event) {
     const favoriteGod = $("input:radio[name=favorite-god]:checked").val();
     const favoriteCondiment = $("input:radio[name=favorite-condiment]:checked").val();
     const favoriteColor = $("input:radio[name=favorite-color]:checked").val();
-    processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCondiment, favoriteColor);
+    const finalLanguage = processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCondiment, favoriteColor);
+    alert(finalLanguage);
     event.preventDefault();
   });
 });
