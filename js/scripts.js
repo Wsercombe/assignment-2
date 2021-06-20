@@ -96,17 +96,21 @@ $(document).ready(function(event) {
     const favoriteCondiment = $("input:radio[name=favorite-condiment]:checked").val();
     const favoriteColor = $("input:radio[name=favorite-color]:checked").val();
     const finalLanguage = processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCondiment, favoriteColor);
-    clearCSS();
-    $("#answer-section").show();
-    if (finalLanguage === "Python"){
-      $("#python").show();
-    } else if (finalLanguage === "C++"){
-      $("#cpp").show();
-    } else if (finalLanguage === "Ruby"){
-      $("#ruby").show();
-    } else if (finalLanguage === "CSS") {
-      $("#css").show();
+    if (favoriteClass && favoriteAnimal && favoriteGod && favoriteCondiment && favoriteColor) {
+      clearCSS();
+      $("#answer-section").show();
+      if (finalLanguage === "Python"){
+        $("#python").show();
+      } else if (finalLanguage === "C++"){
+        $("#cpp").show();
+      } else if (finalLanguage === "Ruby"){
+        $("#ruby").show();
+      } else if (finalLanguage === "CSS") {
+        $("#css").show();
+      }
+      event.preventDefault();
+    } else {
+      alert("Please answer all of the questions.");
     }
-    event.preventDefault();
-  });
+  });    
 });
