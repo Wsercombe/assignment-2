@@ -1,6 +1,14 @@
+function clearCSS(){
+  $("#python").css("display", "none");
+  $("#cpp").css("display", "none");
+  $("#css").css("display", "none");
+  $("#ruby").css("display", "none");
+  $("#answer-section").css("display", "none");
+}
+
 function findLargest(python, cpp, css, ruby) {
   // my very imperfect way of finding the largest variable
-  // ** does not handle ties
+  // ** does not handle ties **
   let largestNum = python;
   let largestVar = "Python";
   if (cpp > largestNum) {
@@ -74,11 +82,6 @@ function processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCond
   } else if (favoriteColor === "Black") {
     cpp += 1;
   }
-
-    alert("Python score: " + python);
-    alert("CSS score: " + css);
-    alert("Ruby score: " + ruby);
-    alert("C++ score: " + cpp);
     return findLargest(python, cpp, css, ruby);
 }
 
@@ -93,7 +96,17 @@ $(document).ready(function(event) {
     const favoriteCondiment = $("input:radio[name=favorite-condiment]:checked").val();
     const favoriteColor = $("input:radio[name=favorite-color]:checked").val();
     const finalLanguage = processAnswers(favoriteClass, favoriteAnimal, favoriteGod, favoriteCondiment, favoriteColor);
-    alert(finalLanguage);
+    clearCSS();
+    $("#answer-section").show();
+    if (finalLanguage === "Python"){
+      $("#python").show();
+    } else if (finalLanguage === "C++"){
+      $("#cpp").show();
+    } else if (finalLanguage === "Ruby"){
+      $("#ruby").show();
+    } else if (finalLanguage === "CSS") {
+      $("#css").show();
+    }
     event.preventDefault();
   });
 });

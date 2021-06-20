@@ -21,3 +21,50 @@
   background-color: lightskyblue;
 }
 
+#answer-section {
+  width: 30%;
+  display: none;
+  margin: auto;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  padding: 20px;
+  background-color: lightgreen;
+}
+
+#css {
+  display: none;
+  text-align:center;
+  margin: auto;
+}
+
+#cpp {
+  display: none;
+  text-align:center;
+  margin: auto;
+}
+
+#ruby {
+  display: none;
+  text-align:center;
+  margin: auto;
+
+}
+
+#python {
+  display: none;
+  text-align:center;
+  margin: auto;
+}
+
+img {
+  width: 50%;
+}
+
+h1{
+  text-align:center;
+}
+
+p {
+  text-align:center;
+}
